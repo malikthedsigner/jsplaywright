@@ -1,20 +1,21 @@
 const { test, expect } = require("@playwright/test")
 
-test("First Test", async ({ page }) => {
+test.skip("First Test @regression", async ({ page }) => {
 
     await page.goto("https://www.saucedemo.com/");
     //await page.pause();
 
 })
 
-test("Title checker", async ({ page }) => {
+test("Title checker @smoke", async ({ page, browserName }) => {
+    test.skip(browserName === 'firefox');
     await page.goto("https://www.saucedemo.com/");
     await expect(page).toHaveTitle("Swag Labs");
     await page.pause;
 
 })
 
-test("Login", async ({ page }) => {
+test("Login @load", async ({ page }) => {
 
     const usernames = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
     for (const username of usernames) {
