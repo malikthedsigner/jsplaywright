@@ -1,10 +1,12 @@
 const { playwrightTestConfig } = require('@playwright/test');
 
+
 const config = {
     retries: 1,
     timeout: 15000,
     fullyparallel: 'true',
     use: {
+        reporter: './reporter.js',
         headless: true,
         viewport: { width: 1200, height: 720 },
         video: "on",
