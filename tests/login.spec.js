@@ -20,7 +20,7 @@ test.describe("login test suite", () => {
     })
 
 
-    test.only("Login with invalid credentials", async ({ page }) => {
+    test("Login with invalid credentials", async ({ page }) => {
 
         await loginPage.login('randomusername', 'random_password');
         await expect(page.getByText('Username and password do not match any user in this service')).toBeVisible();
