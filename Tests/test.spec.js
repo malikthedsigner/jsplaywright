@@ -12,18 +12,13 @@ test.describe("Regression", () => {
         console.log("Test done");
     })
 
-    test.skip("First Test @regression", async ({ page }) => {
-        //await page.pause();
-
-    })
-
-    test("Title checker @smoke", async ({ page, browserName }) => {
+    test("Title checker", async ({ page, browserName }) => {
         test.skip(browserName === 'firefox');
         await expect(page).toHaveTitle("Swag Labs");
 
     })
 
-    test.only("Login @load", async ({ page }) => {
+    test("Login", async ({ page }) => {
 
         const usernames = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
         for (const username of usernames) {
@@ -31,8 +26,21 @@ test.describe("Regression", () => {
             await page.locator('#user-name').fill(username);
             await page.locator('#password').fill('secret_sauce');
             await page.getByRole('button', { name: 'Login' }).click();
-            await page.screenshot({ path: ('screenshot1.png'), fullPage: true });
         }
+    })
+
+    test.only ("Add to cart", async({page}) => {
+
+        await page.locator('#user-name').fill("standard_user");
+        await page.locator('#password').fill("secret_sauce");
+        await page.getByRole('button', { name: 'Login' }).click();
+        await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+        await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+        await page.locator('[data-test="shopping-cart-link"]').click();
+        expect(page.locator('[data-test="item-4-title-link"]')).toHaveText("Sauce Labs Backpack");
+        expect(page.locator('[data-test="item-0-title-link"]')).toHaveText("Sauce Labs Bike Light");
+
+
     })
 })
 
