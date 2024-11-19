@@ -5,6 +5,7 @@ class LoginPage{
         this.usernameField = page.locator('[data-test="username"]');
         this.passwordField = page.locator('[data-test="password"]');
         this.loginButton = page.locator('[data-test="login-button"]');
+        this.errorMessage = page.locator('[data-test="error"]');
     }
 
     async goto(){
@@ -16,6 +17,7 @@ class LoginPage{
         await this.passwordField.fill(password);
         await this.loginButton.click()
     }
+
 }
 
 module.exports = LoginPage;
