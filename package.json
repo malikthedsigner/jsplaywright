@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "chrometest": "npx playwright test --config=playwright.config.js --project=chrome"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@playwright/test": "^1.48.2"
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.0"
   }
 }

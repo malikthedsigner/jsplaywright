@@ -1,35 +1,14 @@
-const { playwrightTestConfig } = require('@playwright/test');
+const { defineConfig } = require('@playwright/test');
 
-
-const config = {
+module.exports = defineConfig({
+    testDir: './tests',
     retries: 1,
-    timeout: 15000,
-    fullyparallel: 'true',
+    reporter: [['html', { open: 'never' }], ['list']],
     use: {
+        baseURL: 'https://www.saucedemo.com',
         headless: true,
-        viewport: { width: 1200, height: 720 },
-        video: "off",
-        screenshot: "only-on-failure",
-        baseURL: 'https://www.saucedemo.com'
-
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
     },
-
-    projects: [
-        {
-            name: 'Chrome',
-            use: { browserName: 'chromium' }
-        },
-
-        {
-            name: 'Firefox',
-            use: { browserName: 'firefox' }
-        },
-
-        {
-            name: 'Webkit',
-            use: { browserName: 'webkit' }
-        },
-    ]
-}
-
-module.exports = config
+});
