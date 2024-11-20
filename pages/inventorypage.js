@@ -1,6 +1,6 @@
-class InventoryPage{
+class InventoryPage {
 
-    constructor(page){
+    constructor(page) {
         this.page = page;
         this.addBagButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
         this.addBikeButton = page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]');
@@ -11,7 +11,7 @@ class InventoryPage{
         this.removeShirtButton = page.locator('[data-test="remove-sauce-labs-bolt-t-shirt"]')
     }
 
-    async addToCart(){
+    async addToCart() {
 
         await this.addBagButton.click();
         await this.addBikeButton.click();
@@ -20,14 +20,14 @@ class InventoryPage{
     }
 
 
-    async removeFromCart(){
+    async removeFromCart() {
 
         await this.removeBagButton.click();
         await this.removeBikeButton.click();
         await this.removeShirtButton.click();
     }
 
-    async getCardNumber(){
+    async getCardNumber() {
 
         return await this.cartIcon;
 

@@ -13,13 +13,13 @@ class CheckoutPage {
         this.backHomeButton = page.locator('[data-test="back-to-products"]');
     }
 
-    async clickCheckout(){
+    async clickCheckout() {
 
         await this.cartButton.click()
         await this.checkoutButton.click();
     }
 
-    async checkoutDetails(userFirstName, userLastName, userZipCode){
+    async checkoutDetails(userFirstName, userLastName, userZipCode) {
 
         await this.firstName.fill(userFirstName);
         await this.lastName.fill(userLastName);
@@ -27,12 +27,12 @@ class CheckoutPage {
         await this.continueButton.click();
     }
 
-    async finishCheckout(){
+    async finishCheckout() {
 
         await this.finishButton.click();
     }
 
-    async backHome(){
+    async backHome() {
 
         await this.backHomeButton.click();
     }

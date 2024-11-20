@@ -19,11 +19,17 @@ test.describe("Adding Items to Cart", () => {
     test("Add to cart", async ({ page }) => {
 
         await inventoryPage.addToCart();
+
+    })
+
+    test("Verify cart count", async ({ page }) => {
+
+        await inventoryPage.addToCart();
         await expect(page.locator('.shopping_cart_badge')).toContainText("3");
     })
 
 
-    test("remove from cart", async({page}) => {
+    test("remove from cart", async ({ page }) => {
 
         await inventoryPage.addToCart();
         await inventoryPage.removeFromCart();

@@ -26,6 +26,12 @@ test.describe("login test suite", () => {
         await expect(page.getByText('Username and password do not match any user in this service')).toBeVisible();
     })
 
+    test("Login with empty fields", async ({ page }) => {
+
+        await loginPage.login('', '');
+        await expect(page.locator('div').filter({ hasText: /^Epic sadface: Username is required$/ })).toBeVisible();
+    })
+
 
 
 })
